@@ -1,7 +1,7 @@
 import os
 import re
 import json
-import joblib
+import joblib      
 import requests
 import pandas as pd
 import jsonschema
@@ -223,8 +223,6 @@ for idx, features in enumerate(test_features_list, 1):
     })
 print("FINAL END-TO-END DEMONSTRATION SUMMARY SCOREBOARD")
 summary_df = pd.DataFrame(demo_summary)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', 1000)
-pd.set_option('display.max_colwidth', 22)
-print(summary_df.to_string(index=False, justify='left'))
+print(summary_df.to_string(index=False))
+
 

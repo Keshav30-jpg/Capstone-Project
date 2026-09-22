@@ -65,7 +65,7 @@ print(f"Random Forest -> Train Acc: {train_acc_rf:.4f} | Test Acc: {test_acc_rf:
 importances = rf.feature_importances_
 feat_imp = pd.DataFrame({"Feature": X_encoded.columns, "Importance": importances})
 feat_imp = feat_imp.sort_values(by="Importance", ascending=False)
-print("\nTop 5 features by andom Forest Importance:")
+print("\nTop 5 features by Random Forest Importance:")
 print(feat_imp.head(5).to_string(index=False))
 
 ### fourth task : a).gradient boosting
@@ -86,7 +86,7 @@ rf_reduced.fit(X_train_reduced, y_clf_train)
 auc_rf_full = auc_rf
 auc_rf_reduced = roc_auc_score(y_clf_test, rf_reduced.predict_proba(X_test_reduced)[:, 1])
 print(f"Full Features Set ROC-AUC: {auc_rf_full:.4f}")
-print(f"Reduced Features Set (r removed) ROC-AUC: {auc_rf_reduced:.4f}")
+print(f"Reduced Features Set (5 lowest removed) ROC-AUC: {auc_rf_reduced:.4f}")
 
 ### fifth task: Cross-validated comparison
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
